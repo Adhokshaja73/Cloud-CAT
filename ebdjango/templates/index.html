@@ -5,8 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Data</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-    
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Medical Condition</td>
+        </thead>
+        {% for i in data %}
+        <tr>
+            
+            <td>{{ i.nameOfPatient }}</td>
+            <td>{{ i.medicalCondition }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </body>
 </html>
